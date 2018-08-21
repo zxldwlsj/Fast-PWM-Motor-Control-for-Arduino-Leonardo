@@ -1,23 +1,24 @@
 # Fast-PWM-Motor-Control-for-Arduino-Leonardo
-user-defined PWM frequency by using Timer 1 3 4 for pins 5 6 9 10
+ user-defined PWM frequency by using Timer 1 3 4 for pins 5 6 9 10
 
-please see http://r6500.blogspot.com/2014/12/fast-pwm-on-arduino-leonardo.html for more details about the datasheet and the registers configure.
+ please see http://r6500.blogspot.com/2014/12/fast-pwm-on-arduino-leonardo.html for more details about the datasheet and the registers configure.
 
-//*timer 1 and 3 configure for pins 9 10 and 5*//
-void pwm5_9_10configure(int mode)
-{
-// TCCR1A configuration
-//  00 : Channel A disabled D9
-//  00 : Channel B disabled D10
-//  00 : Channel C disabled D11
-//  01 : Fast PWM 8 bit
-TCCR1A=1;
-TCCR3A=1;
+ //*timer 1 and 3 configure for pins 9 10 and 5*//
 
-// TCCR1B configuration
-// Clock mode and Fast PWM 8 bit
-TCCR1B=mode|0x08;  
-TCCR3B=mode|0x08;
+ void pwm5_9_10configure(int mode)
+ {
+ // TCCR1A configuration
+ //  00 : Channel A disabled D9
+ //  00 : Channel B disabled D10
+ //  00 : Channel C disabled D11
+ //  01 : Fast PWM 8 bit
+ TCCR1A=1;
+ TCCR3A=1;
+
+ // TCCR1B configuration
+ // Clock mode and Fast PWM 8 bit
+ TCCR1B=mode|0x08;  
+ TCCR3B=mode|0x08;
 
 // TCCR1C configuration
 TCCR1C=0;
